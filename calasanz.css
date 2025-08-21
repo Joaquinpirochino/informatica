@@ -3,20 +3,47 @@ h1{
     color:red;
 }
 h2{
-    color:rgb(243, 83, 243);
+    color:rgb(128, 120, 89);
 }
 /*Selector de clase*/
 .oscuro{
-    background-color: black;
+    background-color: rgb(117, 56, 56);
     color:white;
 }
 /*selector id */
 #biografia{
-    background-color: rgba(236, 205, 117, 0.959);
-    color: rgb(253, 0, 0);
+    background-color: rgba(243, 166, 166, 0.959);
+    color: rgb(56, 27, 27);
+}
+footer{
+    background-color: antiquewhite;
+    color:blueviolet
 }
 /*selector id */
 #Frases{
-    background-color: rgb(241, 255, 113);
-    color: blueviolet;
+    background-color: rgb(250, 155, 155);
+    color: rgb(54, 27, 27);
 }
+footer {
+    background-color: #dba78f;
+    color: #fff8ec;
+    text-align: center;
+    padding: 1rem;
+  }
+  
+  footer a {
+    color: #faeeda;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    margin: 0 0.5rem; 
+    font-size: 1.8rem; 
+    display: inline-block; 
+  }
+  
+  footer a:hover {
+    color: rgb(238, 114, 114);
+  }
+  header{
+    background-image: url("./descarga.jfif");
+  }

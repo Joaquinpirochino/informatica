@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Bienvenida</title>
+</head>
+<body>
+    <h2 id="saludo"></h2>
+    <script>
+        function obtenerParametro(nombre) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(nombre);
+        }
+        const nombre = obtenerParametro("nombre");
+        const apellido = obtenerParametro("apellido");
+        const curso = obtenerParametro("curso");
+
+        const saludo = `¡Bienvenido/a ${nombre} ${apellido} al curso de ${curso}!`;
+        document.getElementById("saludo").textContent = saludo;
+    </script>
+</body>
+</html>

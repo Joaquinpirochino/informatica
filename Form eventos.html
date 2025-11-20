@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Días para un Evento</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        label, input, button {
+            display: block;
+            margin-bottom: 10px;
+        }
+        #resultado {
+            margin-top: 15px;
+            font-weight: bold;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Días Faltantes para un Evento</h1>
+
+    <form id="formularioEvento">
+        <label for="nombreEvento">Nombre del Evento:</label>
+        <input type="text" id="nombreEvento" required>
+
+        <label for="fechaEvento">Fecha del Evento:</label>
+        <input type="date" id="fechaEvento" required>
+
+        <button type="button" onclick="calcularDias()">Calcular</button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <script>
+        function calcularDias() {
+            
+            const nombre = document.getElementById('nombreEvento').value;
+            const fechaInput = document.getElementById('fechaEvento').value;
+            const resultadoDiv = document.getElementById('resultado');
+
+            
+            if (!fechaInput || !nombre) {
+                resultadoDiv.textContent = "Por favor, ingresa el nombre y la fecha del evento.";
+                return;
+            }
+
+            
+            const fechaEvento = new Date(fechaInput);
+            
+            fechaEvento.setHours(0, 0, 0, 0);
+
+            const hoy = new Date();
+            
+            hoy.setHours(0, 0, 0, 0);
+
+            
+            const diferenciaMilisegundos = fechaEvento - hoy;
+
+            
+            const milisegundosEnUnDia = 1000 * 60 * 60 * 24;
+
+            
+            const diasFaltantes = Math.round(diferenciaMilisegundos / milisegundosEnUnDia);
+
+            
+            let mensaje;
+
+            if (diasFaltantes > 0) {
+                
+                mensaje = `Faltan ${diasFaltantes} días para **${nombre}**. 🎉`;
+            } else if (diasFaltantes < 0) {
+                
+                mensaje = `El evento **'${nombre}'** ya ocurrió hace ${Math.abs(diasFaltantes)} días. 🗓️`;
+            } else {
+                
+                 mensaje = `¡El evento **'${nombre}'** es **HOY**! 🥳`;
+            }
+
+            
+            resultadoDiv.innerHTML = mensaje;
+        }
+    </script>
+
+</body>
+</html>
